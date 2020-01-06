@@ -4,8 +4,8 @@
   "description": "Get email notification when a new apartment is available in Stockholm",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm dist/apartment_hunter.zip && cd src && zip -r ../dist/apartment_hunter.zip index.js",
+    "test": "jest",
+    "build": "rm -f dist/apartment_hunter.zip && zip -rq dist/apartment_hunter.zip node_modules src",
     "deploy": "yarn build && cd deploy && terraform apply"
   },
   "repository": {
@@ -17,5 +17,14 @@
   "bugs": {
     "url": "https://github.com/carlrygart/apartment-hunter/issues"
   },
-  "homepage": "https://github.com/carlrygart/apartment-hunter#readme"
+  "homepage": "https://github.com/carlrygart/apartment-hunter#readme",
+  "dependencies": {
+    "aws-sdk": "^2.597.0",
+    "esm": "^3.2.25",
+    "mappersmith": "^2.31.1",
+    "nodemailer": "^6.4.2"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
 }

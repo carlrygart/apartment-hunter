@@ -1,5 +1,2 @@
-const handler = (event, context) => {
-  console.log('Test', event)
-}
-
-exports.handler = handler
+require = require('esm')(module /*, options*/)
+module.exports = require('./handler.js')
