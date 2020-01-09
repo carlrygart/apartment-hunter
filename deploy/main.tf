@@ -8,7 +8,8 @@ resource "aws_lambda_function" "apartment_hunter" {
   role          = aws_iam_role.iam_for_lambda.arn
   handler       = "src/index.handler"
   source_code_hash = filebase64sha256("../dist/apartment_hunter.zip")
-  runtime = "nodejs8.10"
+  runtime = "nodejs10.x"
+  timeout = 10
   depends_on    = [aws_iam_role_policy_attachment.lambda_logs]
 }
 

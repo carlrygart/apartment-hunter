@@ -41,6 +41,7 @@ export const handler = async (event, context) => {
   await Promise.all(
     newApartments.map(async apartment => {
       await mailer.sendMail({
+        from: 'Service <service@domain.com>',
         to: 'your@email.com',
         subject: `Hittat en bostad - ${apartment.Gatuadress}`,
         text: `https://bostad.stockholm.se/${apartment.Url}`,

@@ -107,4 +107,5 @@ dist
 dist
 **/.DS_Store
 **/.terraform
+**/*.tfstate
 **/*.tfstate*
