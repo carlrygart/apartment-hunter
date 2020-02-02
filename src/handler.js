@@ -27,6 +27,7 @@ export const handler = async (event, context) => {
       newApartments.push(apartment)
     }
   }
+  if (!newApartments) return
 
   const mailer = createTransport({
     host: 'smtp.eu.mailgun.org',

@@ -1,8 +1,9 @@
 import { SSM } from 'aws-sdk'
+import { memoize } from 'lodash'
 
 const ssm = new SSM()
 
-export const getSecret = async key => {
+export const getSecret = memoize(async key => {
   return (
     await ssm
       .getParameter({
@@ -11,4 +12,4 @@ export const getSecret = async key => {
       })
       .promise()
   ).Parameter.Value
-}
+})
